@@ -1,0 +1,65 @@
+.tools {
+    @include bp(small) {
+        position: static;
+        border-right: $borderWeight solid $dp;
+        border-top: 0;
+        height: 100%;
+        flex: 0 0 $menuHeight;
+        order: 1;
+    }
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: $dpd;
+    width: 100%;
+    height: $menuHeight;
+    border-top: $borderWeight solid $dp;
+    padding: $bp/3;
+    &__list {
+        @include bp(small) {
+            flex-direction: column;
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 100%;
+    }
+    &__list-item {
+        @include bp(small) {
+            width: 100%;
+            margin: $bp/2 0;
+        }
+        width: $bp;
+        margin: 0 $bp/2;
+        &:hover {
+            .tools__icon {
+                fill: $dpll;
+            }
+        }
+        &:focus, &:active {
+            .tools__icon {
+                fill: $l;
+            }
+        }
+    }
+    &__button {
+        height: 100%;
+        background: transparent;
+        border: 0;
+        padding: 0;
+    }
+    &__text {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    &__icon {
+        @include bp(small) {
+            height: auto;
+            width: 100%;
+        }
+        height: 100%;
+        fill: $dpl;
+        @extend %fillFade;
+    }
+}

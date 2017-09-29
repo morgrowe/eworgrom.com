@@ -1,0 +1,322 @@
+$mainPaneWidth: 70%;
+$sidePaneWidth: 30%;
+
+.weather {
+    @include bp(small) {
+        height: 100%;
+        order: 2;
+        width: calc(100% - #{$menuHeight});
+        margin-bottom: 0;
+    }
+    margin-bottom: $menuHeight;
+    background: $dpl;
+    padding: 0;
+    &__main-wrapper {
+        @include bp(small) {
+            height: 100%;
+            width: 100%;
+            display: flex;
+        }
+    }
+    &__now-hourly-wrapper {
+        @include bp(small) {
+            width: $mainPaneWidth;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    }
+    &__now {
+        @include bp(small) {
+            flex: 0 0 75%;
+            height: 75%;
+        }
+        &__list {
+            @include bp(small) {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: $bp;
+                padding-bottom: $bp*2;
+            }
+            padding: $bp*4 $bp;
+            position: relative;
+        }
+        &__list-item {
+            &__temp, &__summary {
+                color: $l;
+                font-size: 4.5em;
+                text-align: center;
+                text-shadow: 1px 1px 1px #000;
+            }
+            &__location {
+                display: none;
+                font-size: 3em;
+                color: $l;
+                text-shadow: 1px 1px 1px #000;
+                margin-bottom: $bp;
+                @include bp(small) {
+                    display: inline;
+                }
+            }
+            &__temp {
+                margin: 0 0 $bp*2 0;
+                @include bp(small) {
+                    margin: $bp*2 0;
+                }
+            }
+            &__tempMin, &__tempMax {
+                @extend %celsiusSymbol;
+            }
+            &__tempMin {
+                color: $dpll;
+                margin-left: $bp;
+            }
+            &__summary {
+                font-size: 2em;
+            }
+            &__header-bar {
+                @include bp(small) {
+                    display: none;
+                }
+                padding: $bp/2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: $dp;
+                color: white;
+                border-bottom: $borderWeight/2 solid $dpl;
+                &__list {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            &__footer-bar {
+                @include bp(small) {
+                    border-top: 0;
+                }
+                padding: $bp/2;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: $dp;
+                color: white;
+                border-top: $borderWeight/2 solid $dpl;
+                &__list {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+    &__hourly {
+        @include bp(small) {
+            height: 25%;
+        }
+        &__list {
+            @include bp(small) {
+                height: 100%;
+            }
+            display: flex;
+            overflow-x: scroll;
+            border-bottom: 1px solid $dpd;
+        }
+        &__list-item {
+            border-right: 1px solid $dpd;
+            padding: $bp/1.5 $bp/2;
+            text-align: center;
+            &--selected {
+                background: $dpd;
+                color: $l;
+            }
+            &:active {
+                background: $dpll;
+            }
+            &:focus {
+                background: $dpll;
+                outline: 0;
+            }
+            &__list {
+                height: 100%;
+                @include bp(small) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+                &__list-item {
+                }
+                &__icon {
+                    @include bp(small) {
+                        max-width: 60%;
+                    }
+                    margin: $bp/1.5 0;
+                    width: 80%;
+                    fill: $dp;
+                }
+                &__temp {
+                    @extend %celsiusSymbol;
+                }
+            }
+        }
+    }
+    &__daily {
+        @include bp(small) {
+            border-left: $borderWeight solid $dp;
+            width: $sidePaneWidth;
+        }
+        background: $dpll;
+        &__list {
+            @include bp(small) {
+                padding: $bp;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+        &__list-item {
+            &__list {
+                @include bp(small) {
+                    border: 0;
+                }
+                font-size: 1.1em;
+                padding: $bp/2;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                border-bottom: 1px solid $dpd;
+                &__list-item {}
+                &__icon {
+                    fill: $dpd;
+                    height: 2em;
+                    padding: 0 $bp/2;
+                }
+                &__day {
+                    width: 25%;
+                    text-align: right;
+                }
+                &__temp {
+                    width: 25%;
+                    @extend %celsiusSymbol;
+                }
+            }
+        }
+    }
+    &__daily-details {
+        &__wrapper {
+            @include bp(small) {
+                position: fixed;
+                top:0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background:rgba(0,0,0,0.8);
+            }
+        }
+        @include bp(small) {
+            position: fixed;
+            width: 50%;
+            max-height: 100%;
+            top: $bp*2;
+            left: 25%;
+            box-shadow: 0 0 $bp #000;
+            border-bottom: 0;
+            background: $dpd;
+        }
+        position: relative;
+        padding: $bp $bp/2;
+        background: $dpd;
+        color: $l;
+        border-bottom: $borderWeight solid $dpl;
+        &__close {
+            position: absolute;
+            top: $bp;
+            right: $bp/2;
+            background: transparent;
+            border: 0;
+        }
+        &__close-text {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+        }
+        &__close-icon {
+            width: 1.25em;
+            fill: $dpll;
+        }
+        &__heading {
+            font-size: 1.3em;
+            margin: 0 0 $bp/2 0;
+        }
+        &__table {
+            width: 100%;
+            &__desc, &__value {
+                padding: $bp/5 $bp/4;
+                width: 50%;
+            }
+            &__desc {
+                color: $dpll;
+                margin-right: $bp/6;
+                text-align: right;
+            }
+            &__value {
+                margin-left: $bp/6;
+                &__temp, &__dew-point {
+                    @extend %celsiusSymbol;
+                }
+            }
+            &__header {
+                font-size: 1.45em;
+                color: $l;
+                padding-bottom: $bp/3;
+            }
+        }
+    }
+}
+
+
+
+
+
+.weather-graphic {
+    /*&__tint {
+        background-color: rgba(0,0,250,.5); // Tint color
+        background-blend-mode: multiply;
+    }*/
+    background-size: cover;
+    &--clear-day {
+        background-image: url('/img/weather/clear-day.jpg');
+    }
+    &--clear-night {
+        background-image: url('/img/weather/clear-night.jpg');
+    }
+    &--broken-clouds {
+        background-image: url('/img/weather/broken-clouds.jpg');
+    }
+    &--light-rain {
+        background-image: url('/img/weather/light-rain.jpg');
+    }
+    &--rain {
+        background-image: url('/img/weather/rain.jpg');
+    }
+    &--windy {
+        background-image: url('/img/weather/windy.jpg');
+    }
+    &--partly-cloudy-day {
+        background-image: url('/img/weather/partly-cloudy-day.jpg');
+    }
+    &--partly-cloudy-night {
+        background-image: url('/img/weather/partly-cloudy-night.jpg');
+    }
+    &--scattered-clouds {
+        background-image: url('/img/weather/scattered-clouds.jpg');
+    }
+    &--cloudy {
+        background-image: url('/img/weather/cloudy.jpg');
+    }
+}

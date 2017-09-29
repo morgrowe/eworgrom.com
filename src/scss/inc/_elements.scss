@@ -1,0 +1,37 @@
+:root {
+    @include bp(small) {
+        font-size: 22px;
+    }
+    font-size: 18px;
+}
+
+html {
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: $l;
+    @extend %regularFont;
+}
+
+button {
+    @extend %regularFont;
+}
+
+h1, h2, h3, h4, ol, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}

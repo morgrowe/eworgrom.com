@@ -1,0 +1,21 @@
+/* Colours */
+
+// Day colours
+$dp: #1976d2;
+$dpl: #63a4ff;
+$dpll: lighten($dpl, 10);
+$dpd: #004ba0;
+
+// Night colours
+$np: #37474f;
+$npl: #62727b;
+$npd: #102027;
+
+// White and black shades
+$l: #eee;
+$d: #111;
+
+
+$bp: 2rem;
+$borderWeight: 5px;
+$menuHeight: $bp*2;

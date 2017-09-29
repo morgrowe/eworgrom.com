@@ -1,0 +1,24 @@
+.loading {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $d;
+    background: $dpll;
+    transition: height .75s;
+    &__title {
+        display: block;
+        font-size: 1.8em;
+        margin-bottom: $bp*2;
+    }
+    &__graphic {
+        @extend %animationSpin;
+        width: 20%;
+        fill: $dpd;
+    }
+    &--loaded {
+        height: 0;
+        overflow: hidden;
+    }
+}

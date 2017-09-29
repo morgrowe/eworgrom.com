@@ -1,0 +1,12 @@
+.hideSVGDefs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.generic__loading {
+  @extend %animationSpin;
+  width: 1em;
+  fill: $l;
+}

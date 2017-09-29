@@ -1,0 +1,57 @@
+.thanks {
+    &__wrapper {
+        @include bp(small) {
+            position: fixed;
+            top:0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 2;
+            background:rgba(0,0,0,0.8);
+        }
+    }
+    @include bp(small) {
+        position: fixed;
+        width: 80%;
+        max-height: 100%;
+        top: $bp*2;
+        left: 10%;
+        box-shadow: 0 0 $bp #000;
+        border-bottom: 0;
+    }
+    animation: fadein 1s;
+    border-bottom: $borderWeight solid $dpd;
+    background: $dpll;
+    color: $d;
+    padding: $bp/2 $bp;
+    line-height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &__heading {
+        font-size: 1.35em;
+        margin-top: $bp/2;
+        color: $dpd;
+    }
+    a {
+        color: $dpd;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    &__close {
+        position: absolute;
+        top: $bp/2;
+        right: $bp/2;
+        background: transparent;
+        border: 0;
+    }
+    &__close-text {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+    &__close-icon {
+        width: 1.25em;
+        fill: $dpd;
+    }
+}

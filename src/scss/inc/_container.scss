@@ -1,0 +1,21 @@
+.container {
+    position: relative;
+    height: 100%;
+    &--show {
+        display: block;
+    }
+}
+
+#root {
+    height: 100%;
+}
+
+.app-container {
+    @include bp(small) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        height: 100%;
+    }
+}

@@ -1,0 +1,92 @@
+.location-search {
+    @include bp(small) {
+        order: -1;
+        border-bottom: 0;
+        flex: 0 0 $menuHeight*7;
+    }
+    animation: fadein 1s;
+    padding: $bp $bp/1.5;
+    background: $dpll;
+    border-bottom: $borderWeight solid $dp;
+    &__header {
+        font-size: 1.35em;
+    }
+    &__info {
+        margin: $bp/2 0;
+    }
+    &__auto-button {
+        display: block;
+        padding: $bp/3;
+        background: $dp;
+        border: 2px solid $dpd;
+        color: $l;
+        border-radius: 6px;
+        /*padding: $bp/10 0;
+        color: $dpd;
+        border: 0;
+        border-bottom: 1px dashed $dpd;
+        background: transparent;*/
+    }
+    &__form {
+        display: block;
+        margin: $bp/2 0 0 0;
+        position: relative;
+    }
+    &__input {
+        @extend %regularFont;
+        display: inline-block;
+        width: 100%;
+        padding: $bp/2.5 $bp/2.5 $bp/2.5 $bp*1.55;
+        font-size: 1.2em;
+        border: 2px solid $dpl;
+        border-radius: 6px;
+        &:focus {
+            outline: 0;
+            border: 2px solid $dp;
+        }
+    }
+    &__label {
+        &__text {
+            display: none;
+        }
+        &__icon {
+            position: absolute;
+            top: $bp/2.5;
+            left: $bp/2.5;
+            width: $bp/1.25;
+            fill: $dpll;
+        }
+    }
+    &__results {
+        margin: $bp/2 0 0 0;
+        &__header {
+            font-size: 1.2em;
+            margin: 0 0 $bp/2 0;
+        }
+        &__list {}
+        &__list-item {
+            display: inline-block;
+        }
+        &__button {
+            border: 0;
+            background: $dpl;
+            border: 2px solid $dp;
+            padding: $bp/4;
+            margin: 0 $bp/4 $bp/4 0;
+        }
+    }
+}
+
+.location-search-results {
+    &__result {
+        &__list {}
+        &__list-item {
+            display: inline-block;
+            padding: $bp/4;
+            margin: 0 $bp/4 $bp/4 0;
+            background: $dp;
+            color: white;
+        }
+        &__text {}
+    }
+}

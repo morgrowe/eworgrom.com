@@ -1,0 +1,60 @@
+.error-message {
+    &__wrapper {
+        @include bp(small) {
+            position: fixed;
+            top:0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background:rgba(0,0,0,0.8);
+        }
+    }
+    @include bp(small) {
+        position: fixed;
+        width: 50%;
+        max-height: 100%;
+        top: $bp*2;
+        left: 25%;
+        box-shadow: 0 0 $bp #000;
+        border-bottom: 0;
+        background: $dpd;
+    }
+    border-bottom: $borderWeight solid $dp;
+    background: $dpd;
+    color: $l;
+    padding: $bp/2 $bp;
+    line-height: 1.4em;
+    display: flex;
+    align-items: center;
+    &__graphic {
+        width: 15%;
+        margin-right: $bp;
+    }
+    &__text {
+        width: 85%;
+        margin-right: $bp;
+    }
+    &__icon {
+        fill: $dpll;
+        width: 100%;
+    }
+    &__message {
+        font-size: 1.1em;
+    }
+    &__close {
+        position: absolute;
+        top: $bp/2;
+        right: $bp/2;
+        background: transparent;
+        border: 0;
+    }
+    &__close-text {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+    &__close-icon {
+        width: 1.25em;
+        fill: $dpll;
+    }
+}
